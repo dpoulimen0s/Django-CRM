@@ -1,28 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <div class="container" id="register">
+    <div class="container" id="signup">
         <div class="row justify-content-center align-items-center 0">
             <div class="col-12 col-lg-9 col-xl-7">
                 <div class="card-body p-3 p-md-5">
 
-                    <h3 class="mb-3 pb-2 pb-md-0 mb-md-5">Register</h3>
+                    <h3 class="mb-3 pb-2 pb-md-0 mb-md-4">Sign Up</h3>
 
-                    <form method="post">
+                    <form method="POST">
+                        {% csrf_token %}
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                  <div class="field">
                                      <div class="form-floating mb-3">
-                                         <input type="text" class="form-control" placeholder="firstname" id="floatingInput" required>
-                                         <label for="floatingInput">First Name</label>
+                                         {{ form.first_name }}
+                                         <label for="floatingInput"> First Name</label>
                                      </div>
                                  </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                  <div class="field">
                                     <div class="form-floating mb-3">
-                                         <input type="text" class="form-control" placeholder="lastname" id="floatingInput" required>
+                                         {{ form.last_name }}
                                          <label for="floatingInput">Last Name</label>
                                      </div>
                                  </div>
@@ -32,7 +32,7 @@
                             <div class="col-md-6 mb-4">
                                  <div class="field">
                                      <div class="form-floating mb-3">
-                                         <input type="text" class="form-control" placeholder="username" id="floatingInput" required>
+                                         {{ form.username }}
                                          <label for="floatingInput">Username</label>
                                      </div>
                                  </div>
@@ -40,7 +40,7 @@
                             <div class="col-md-6 mb-4">
                                  <div class="field">
                                     <div class="form-floating mb-3">
-                                         <input type="email" class="form-control" placeholder="email" id="floatingInput" required>
+                                         {{ form.email }}
                                          <label for="floatingInput">Email</label>
                                      </div>
                                  </div>
@@ -49,8 +49,8 @@
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class="field">
-                                     <div class="form-floating">
-                                         <input type="Password" class="form-control" placeholder="password" id="floatingInput" required>
+                                     <div class="form-floating mb-3">
+                                         {{ form.password1 }}
                                          <label for="floatingInput">Password</label>
                                      </div>
                                 </div>
@@ -58,7 +58,7 @@
                             <div class="col-md-6 mb-4">
                                 <div class="field">
                                      <div class="form-floating">
-                                         <input type="Password" class="form-control" placeholder="confirmpassword" id="floatingInput" required>
+                                         {{ form.password2 }}
                                          <label for="floatingInput">Confirm Password</label>
                                      </div>
                                 </div>

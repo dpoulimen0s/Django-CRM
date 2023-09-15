@@ -11,20 +11,29 @@
 
                 <div class="card-body p-3 p-md-5">
 
-                    <h3 class="mb-3 pb-2 pb-md-0 mb-md-5">Login</h3>
+                    <h3 class="mb-3 pb-2 pb-md-0 mb-md-4">Login</h3>
 
-                        <form method="post">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{ message.tags }} d-flex align-items-center alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
 
+                        <form method="POST" action="{% url 'login' %}">
+                            {% csrf_token %}
                             <div class="field">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" placeholder="username" id="floatingInput">
+                                    <input type="text" name="username" class="form-control" placeholder="username" id="floatingInput">
                                     <label for="floatingInput">Username</label>
                                 </div>
                             </div>
 
                             <div class="field">
                                 <div class="form-floating mb-3">
-                                    <input type="Password" class="form-control" placeholder="password" id="floatingInput">
+                                    <input type="Password" name="password" class="form-control" placeholder="password" id="floatingInput">
                                     <label for="floatingInput">Password</label>
                                 </div>
                             </div>

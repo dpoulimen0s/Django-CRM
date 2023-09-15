@@ -1,6 +1,7 @@
 <footer class="mt-auto">
+    {% if not user.is_authenticated %}
     <ul class="nav justify-content-center" style="margin-bottom: -20px">
-      <li class="nav-item"><a href="{% url 'about' %}" class="nav-link px-2 text-body-secondary">About</a></li>
+      <li class="nav-item"><a href="{% url 'about' %}" target ="_blank" class="nav-link px-2 text-body-secondary">About</a></li>
       <li> <p class="nav-link text-body-secondary"> | </p> </li>
       <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-body-secondary">Contact</a></li>
     </ul>
@@ -8,4 +9,10 @@
         <div style="margin-bottom: 7px" class="border-top"></div>
         <span class="text-muted">© 2023-2024 Django CRM Project</span>
     </div>
+    {% else %}
+    <div class="container text-center py-2 bg-transparent">
+        <div style="margin-bottom: 7px" class="border-top"></div>
+        <span class="text-muted">© 2023-2024 Django CRM Project</span>
+    </div>
+    {% endif %}
 </footer>

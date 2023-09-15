@@ -1,3 +1,4 @@
+{% load static %}
 <!-- Navigation Bar -->
 <div class="container py-3">
 
@@ -9,9 +10,54 @@
         </a>
 
         <nav class="d-inline-flex mt-4 mt-md-3 ms-md-auto">
-            <!-- Content of the unauthorized  users -->
-            <a style="margin-left: 10px" class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up</a>
-            <a style="margin-left: 10px" class="btn btn-success" href="{% url 'login' %}" role="button">Log In</a>
+            {% if user.is_authenticated %}
+
+                <!-- Content of the authenticated users -->
+                <div class="flex-shrink-0 dropdown">
+                    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'img/users/'|add:request.user.get_username|add:'.jpg' %}" alt="mdo" width="32" height="32" class="rounded-circle me-2">
+                        <strong>{{ request.user.get_username }} </strong>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" style="">
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="">
+                                <i class="fa-solid fa-gauge"></i> Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="">
+                                <i class="fa-solid fa-user"></i> Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="">
+                                <i class="fa-solid fa-gear"></i> Settings
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex gap-2 align-items-center" href="">
+                                <i class="fa-solid fa-message"></i> Contact
+                            </a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li id="logout">
+                            <a class="dropdown-item dropdown-item-danger d-flex gap-2 align-items-center"
+                               href="{% url 'logout' %}">
+                                <i class="fas fa-sign-out-alt"></i> Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            {% else %}
+
+                <!-- Content of the unauthorized  users -->
+                <a style="margin-left: 10px" class="btn btn-primary" href="{% url 'signup' %}" role="button">Sign Up</a>
+                <a style="margin-left: 10px" class="btn btn-success" href="{% url 'login' %}" role="button">Log In</a>
+
+            {% endif %}
         </nav>
 
     </div>

@@ -1,0 +1,41 @@
+/* Login and register forms centered */
+#signup {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* Dropdown CSS */
+.dropdown-item-danger {
+  color: var(--bs-red);
+}
+.dropdown-item-danger:hover,
+.dropdown-item-danger:focus {
+  color: #fff;
+  background-color: var(--bs-red);
+}
+.dropdown-item-danger.active {
+  background-color: var(--bs-red);
+}
+
+#navlink:hover {
+    color: #0d6efd;
+}
+
+#navlink {
+    color: #37323e;
+    border-radius: 5px;
+}
+
+.dropdown-toggle {
+    outline: 5px;
+}
