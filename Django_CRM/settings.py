@@ -74,12 +74,8 @@ WSGI_APPLICATION = 'Django_CRM.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_crm',
-        'USER': 'postgres',
-        'PASSWORD': 'password1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',  # Changed to use SQLite
+        'NAME': BASE_DIR / 'db.sqlite3',  # SQLite will store the database file in the project directory
     }
 }
 
